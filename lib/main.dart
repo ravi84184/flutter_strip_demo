@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_strip_demo/cashfree/cashfree_payment_screen.dart';
 import 'package:flutter_strip_demo/strip/strip_payment.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 
@@ -57,7 +58,17 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               child: const Text("Stripe Payment"),
             ),
-            
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const CashFreePaymentScreen(),
+                  ),
+                );
+              },
+              child: const Text("Cashfree Payment"),
+            ),
           ],
         ),
       ),

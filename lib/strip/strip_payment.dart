@@ -13,16 +13,7 @@ class StripPaymentScreen extends StatefulWidget {
 
 class _StripPaymentScreenState extends State<StripPaymentScreen> {
   void onTapDonate(context) async {
-    /*if (getPaymentMethod() == null) {
-      showCommonAlert(
-          context, ALERT_TITLE_APP_NAME, "Please add or select a card.");
-    } else if (double.parse(getTotalAmountToDisplay()) <
-        minimumDonationAmount) {
-      showCommonAlert(context, ALERT_TITLE_APP_NAME,
-          "Donation amount cannot be less than \$$minimumDonationAmount.");
-    } else {
-      makeDonation();
-    }*/
+
     var paymentIntent = await createPayment();
     await Stripe.instance.initPaymentSheet(
       paymentSheetParameters: SetupPaymentSheetParameters(
@@ -63,6 +54,16 @@ class _StripPaymentScreenState extends State<StripPaymentScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Strip Payment"),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          onTapDonate(context);
+        },
+        child: Text("Pay"),
+      ),
+    );
   }
 }
