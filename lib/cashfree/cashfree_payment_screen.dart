@@ -84,7 +84,7 @@ class _CashFreePaymentScreenState extends State<CashFreePaymentScreen> {
         "customer_id": "123",
         "customer_name": "Ravi Patel",
         "customer_email": "ravi@gmail.com",
-        "customer_phone": "999999999"
+        "customer_phone": "+91999999999"
       },
       "order_meta": {"notify_url": "https://test.cashfree.com"},
       "order_note": "some order note here"
@@ -123,8 +123,7 @@ class _CashFreePaymentScreenState extends State<CashFreePaymentScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          if(controller.text.trim().isNotEmpty)
-          webCheckout();
+          if (controller.text.trim().isNotEmpty) webCheckout();
         },
         child: const Text("Pay"),
       ),
